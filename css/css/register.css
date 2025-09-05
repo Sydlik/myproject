@@ -1,0 +1,116 @@
+/* =====================
+   General Reset
+===================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* =====================
+   Body with Flexbox Layout
+===================== */
+body {
+  background: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+
+  display: flex;              /* Enable Flexbox */
+  flex-direction: column;     /* Stack navbar + content vertically */
+  min-height: 100vh;          /* Full screen height */
+}
+
+/* =====================
+   Navbar
+===================== */
+.navbar {
+  background: #004080;
+  color: white;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* =====================
+   Page Info Text
+===================== */
+.page-info {
+  margin: 20px auto;
+  font-size: 1rem;
+  color: #444;
+  text-align: center;
+}
+
+/* =====================
+   Registration Form Container
+===================== */
+.container {
+  flex: 1;                    /* Take up available space */
+  display: flex;              /* Flexbox to center the form */
+  align-items: center;        /* Center vertically */
+  justify-content: center;    /* Center horizontally */
+  padding: 20px;
+}
+
+/* Card Style */
+.container form {
+  width: 100%;
+  max-width: 450px;
+  padding: 25px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;                  /* Space between form fields */
+}
+
+/* Heading */
+.container h2 {
+  margin-bottom: 10px;
+  color: #004080;
+  text-align: center;
+}
+
+/* Labels */
+form label {
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+/* Input Fields */
+form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: 0.3s;
+}
+
+form input:focus {
+  border-color: #004080;
+  box-shadow: 0 0 6px rgba(0,64,128,0.3);
+}
+
+/* Submit Button */
+.btn {
+  margin-top: 10px;
+  padding: 12px;
+  background: #004080;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ff6600;
+}

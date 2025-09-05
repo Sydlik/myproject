@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #f0f4ff, #e0e7ff);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #1f2937;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 420px;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    animation: fadeIn 0.6s ease;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #111827;
+    text-align: center;
+  }
+
+  /* Links */
+  .links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    gap: 20px;
+  }
+
+  .links a {
+    font-weight: 600;
+    color: #6b7280;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .links a.active {
+    color: #1d4ed8;
+  }
+
+  .links a.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    height: 3px;
+    width: 100%;
+    background-color: #1d4ed8;
+    border-radius: 2px;
+  }
+
+  /* Sections */
+  .section {
+    display: none;
+  }
+
+  .section.active {
+    display: block;
+  }
+
+  /* Form */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #374151;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    outline: none;
+    font-size: 1rem;
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  }
+
+  button {
+    padding: 12px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+  }
+
+  button:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+  }
+
+  button:active {
+    transform: translateY(0);
+  }
+
+  /* Register link */
+  .register {
+    margin-top: 15px;
+    text-align: center;
+  }
+
+  .register a {
+    color: #2563eb;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .register a:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+  }
+
+  /* Animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+</head>
+<body>
+
+  <!-- Links -->
+  <div class="links">
+    <a id="studentLink" class="active">Student</a>
+    <a id="staffLink">Staff</a>
+  </div>
+
+  <!-- Student Login -->
+  <div id="studentDiv" class="section active">
+    <h2>Student Login</h2>
+    <form method="POST" action="login.php">
+      <input type="hidden" name="user_type" value="student">
+      <label>Matric No:</label><br>
+      <input type="text" name="matric_no" required><br><br>
+      <label>Password:</label><br>
+      <input type="password" name="password" required><br><br>
+      <button type="submit">Login</button>
+    </form>
+
+    
+    
+      <a href="register.html">Register</a>
+  </div>
+
+  <!-- Staff Login -->
+  <div id="staffDiv" class="section">
+    <h2>Staff Login</h2>
+    <form method="POST" action="login.php">
+      <input type="hidden" name="user_type" value="staff">
+      <label>Staff ID:</label><br>
+      <input type="text" name="staff_id" required><br><br>
+      <label>Password:</label><br>
+      <input type="password" name="password" required><br><br>
+      <button type="submit">Login</button>
+    </form>
+
+    
+    
+      <a href="register.html">Register</a>
+  </div>
+
+  <script>
+    const studentLink = document.getElementById('studentLink');
+    const staffLink = document.getElementById('staffLink');
+    const studentDiv = document.getElementById('studentDiv');
+    const staffDiv = document.getElementById('staffDiv');
+
+    studentLink.addEventListener('click', () => {
+      studentDiv.classList.add('active');
+      staffDiv.classList.remove('active');
+      studentLink.classList.add('active');
+      staffLink.classList.remove('active');
+    });
+
+    staffLink.addEventListener('click', () => {
+      staffDiv.classList.add('active');
+      studentDiv.classList.remove('active');
+      staffLink.classList.add('active');
+      studentLink.classList.remove('active');
+    });
+  </script>
+
+</body>
+</html>
+

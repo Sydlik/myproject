@@ -1,0 +1,143 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body */
+body {
+  background: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* Heading */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #004080;
+}
+
+/* Navigation */
+nav {
+  margin-bottom: 40px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #004080;
+  margin: 0 15px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+nav a:hover {
+  color: #ff6600;
+  border-bottom: 2px solid #ff6600;
+  padding-bottom: 2px;
+}
+
+/* Card Container */
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  justify-content: center;
+}
+
+/* Card */
+.card {
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+/* Card Image */
+.card img {
+  width: 100%;       /* image fits card width */
+  max-height: 150px; /* reduce height */
+  object-fit: contain; /* keeps full image without cutting */
+  padding: 10px;
+}
+
+
+/* Card Contents */
+.card-contents {
+  padding: 20px;
+}
+
+.card-contents h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #004080;
+}
+
+.text-body {
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #004080;
+  color: #fff;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ff6600;
+  color: #fff;
+}
+
+
+/* Gender fieldset styling */
+.gender-field {
+  border: none;              /* remove default border */
+  margin: 15px 0;
+  padding: 10px 0;
+  font-size: 16px;
+}
+
+.gender-field legend {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Style each label with spacing */
+.gender-field label {
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+/* Make radio buttons bigger */
+.gender-field input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  cursor: pointer;
+  accent-color: #007bff;   /* modern browsers: blue color */
+}

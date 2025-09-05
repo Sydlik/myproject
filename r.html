@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student & Staff Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .links {
+            margin-bottom: 20px;
+        }
+
+        .links a {
+            margin-right: 15px;
+            text-decoration: none;
+            color: blue;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .links a.active {
+            color: darkblue;
+            text-decoration: underline;
+        }
+
+        .section {
+            display: none;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .section.active {
+            display: block;
+        }
+    </style>
+    <link rel="stylesheet" href="/css/css/register.css">
+</head>
+<body>
+
+    <div class="links">
+        <a id="studentLink" class="active">Student</a>
+        <a id="staffLink">Staff</a>
+    </div>
+
+    <div id="studentDiv" class="section active">
+        <h2>Student Registration Form</h2>
+
+    <form method="POST" action="registerprocess.php">
+      <label>Matric No:</label>
+      <input type="text" name="matric_no" required><br><br>
+
+      <label>Student Name:</label>
+      <input type="text" name="student_name" required><br><br>
+
+      <label>Password:</label>
+      <input type="password" name="password" required><br><br>
+
+      <label>Phone Number:</label>
+      <input type="text" name="phone" required><br><br>
+
+      <label>Faculty:</label>
+      <input type="text" name="faculty" required><br><br>
+
+      <label>Department:</label>
+      <input type="text" name="department" required><br><br>
+
+      <label>Level:</label>
+      <input type="text" name="level" required><br><br>
+
+      <!-- New Gender Field -->
+      <label>Gender:</label>
+      <select name="gender" required>
+        <option value="">Select Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select><br><br>
+
+      <p id="message"></p>
+
+      <button type="submit">Register</button>
+
+      
+        <h4>Already have an account <a href="login.html">Login</a></h4> 
+    </form>
+    </div>
+
+    <div id="staffDiv" class="section"><p>Staff Registration Form</p><br>
+
+            <form action="staffregister.php" method="POST">
+        
+
+                <label for="staff_name">Staff Name</label>
+                <input type="text" id="staff_name" name="staff_name" required><br><br>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" name="phone" 
+                    placeholder="e.g. +234 801 234 5678" 
+                    pattern="[0-9]{11}" 
+                    required><br><br>
+
+            
+                <label for="gender">Gender</label>
+                    <select class="input-field" name="gender" id="gender" required>
+                        <option value="choose" selected>choose</option>
+                        <option name="male" value="male" >Male</option>
+                        <option name="female" value="female">Female</option>
+                        <option name="other" value="other">Other</option>
+                    </select><br><br>
+
+                <label for="staff_id">Staff id</label>
+                <input type="text" id="staff_id" name="staff_id" required><br><br>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required><br><br>
+            
+                <label for="password">Confirm Password</label>
+                <input type="password" id="confirm_password" name="confirm_password" required><br><br>
+
+                <p id="message"></p>
+                
+
+                <button type="submit" class="btn">Register</button>
+
+                <h4>Already have an account <a href="login.html">Login</a></h4> 
+
+            </form>
+    </div>
+
+    <script>
+        const studentLink = document.getElementById('studentLink');
+        const staffLink = document.getElementById('staffLink');
+        const studentDiv = document.getElementById('studentDiv');
+        const staffDiv = document.getElementById('staffDiv');
+
+        studentLink.addEventListener('click', () => {
+            studentDiv.classList.add('active');
+            staffDiv.classList.remove('active');
+            studentLink.classList.add('active');
+            staffLink.classList.remove('active');
+        });
+
+        staffLink.addEventListener('click', () => {
+            staffDiv.classList.add('active');
+            studentDiv.classList.remove('active');
+            staffLink.classList.add('active');
+            studentLink.classList.remove('active');
+        });
+
+// password checking
+
+          function checkPasswordMatch() {
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirm_password").value;
+    const message = document.getElementById("message");
+
+    if (password === "" || confirmPassword === "") {
+      message.textContent = ""; // clear message if empty
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      message.style.color = "red";
+      message.textContent = "❌ Passwords do not match!";
+    } else {
+      message.style.color = "green";
+      message.textContent = "✅ Passwords match!";
+    }
+  }
+
+  // Live check as user types
+  document.getElementById("password").addEventListener("keyup", checkPasswordMatch);
+  document.getElementById("confirm_password").addEventListener("keyup", checkPasswordMatch);
+
+    </script>
+
+</body>
+</html>
